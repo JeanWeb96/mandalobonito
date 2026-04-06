@@ -8,6 +8,7 @@ export default function ShopPage() {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const categories = useMemo(() => {
     const cats = Array.from(new Set(products.flatMap(p => p.categories)));
@@ -64,31 +65,52 @@ export default function ShopPage() {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-20">
-        {/* Sidebar de Categorías Estilizado */}
+        {/* Sidebar de Categorías Estilizado / Filtro Móvil */}
         <aside className="lg:w-72 flex-shrink-0">
           <div className="sticky top-32">
-            <h2 className="font-sans uppercase tracking-[0.3em] text-xs font-bold mb-8 text-brand-gold border-b border-brand-gold/20 pb-4">Filtrar por</h2>
-            <ul className="space-y-4 font-sans tracking-[0.1em] text-sm">
-              {categories.map(cat => (
-                <li key={cat}>
-                  <button 
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`group flex items-center justify-between w-full text-left py-2 transition-all ${
-                      selectedCategory === cat 
-                      ? 'text-brand-brown font-bold' 
-                      : 'text-brand-gray hover:text-brand-gold'
-                    }`}
-                  >
-                    <span>{cat}</span>
-                    {selectedCategory === cat && (
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand-gold"></div>
-                    )}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            {/* Mobile Filter Toggle */}
+            <button 
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              className="lg:hidden w-full flex items-center justify-between p-5 bg-brand-cream border border-brand-brown/5 rounded-2xl mb-6 shadow-sm hover:border-brand-gold/20 transition-all font-sans uppercase tracking-widest text-xs font-bold"
+            >
+              <div className="flex items-center gap-3">
+                <svg className="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                </svg>
+                <span>Filtrar por: <span className="text-brand-gold">{selectedCategory}</span></span>
+              </div>
+              <svg className={`w-4 h-4 transition-transform duration-300 ${isFilterOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
 
-            <div className="mt-20 p-8 bg-brand-brown text-white rounded-[2.5rem] shadow-xl">
+            <div className={`overflow-hidden transition-all duration-500 lg:h-auto ${isFilterOpen ? 'max-h-[500px] mb-12 opacity-100 scale-100' : 'max-h-0 lg:max-h-none opacity-0 scale-95 lg:opacity-100 lg:scale-100'}`}>
+              <h2 className="hidden lg:block font-sans uppercase tracking-[0.3em] text-xs font-bold mb-8 text-brand-gold border-b border-brand-gold/20 pb-4">Categorías</h2>
+              <ul className="space-y-4 font-sans tracking-[0.1em] text-sm bg-white/50 lg:bg-transparent p-6 lg:p-0 rounded-3xl lg:rounded-none border border-brand-brown/5 lg:border-none shadow-sm lg:shadow-none">
+                {categories.map(cat => (
+                  <li key={cat}>
+                    <button 
+                      onClick={() => {
+                        setSelectedCategory(cat);
+                        setIsFilterOpen(false);
+                      }}
+                      className={`group flex items-center justify-between w-full text-left py-2 transition-all px-4 lg:px-0 rounded-xl ${
+                        selectedCategory === cat 
+                        ? 'text-brand-brown font-bold bg-brand-gold/5 lg:bg-transparent' 
+                        : 'text-brand-gray hover:text-brand-gold hover:bg-brand-gold/5 lg:hover:bg-transparent'
+                      }`}
+                    >
+                      <span>{cat}</span>
+                      {selectedCategory === cat && (
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-gold"></div>
+                      )}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="hidden lg:block mt-20 p-8 bg-brand-brown text-white rounded-[2.5rem] shadow-xl">
               <h3 className="font-display text-2xl mb-4">¿Algo especial?</h3>
               <p className="text-sm text-brand-cream/60 leading-relaxed mb-6 italic">
                 Cualquier pieza puede ser personalizada. Si no encuentras lo que imaginas, contáctanos.
@@ -99,7 +121,7 @@ export default function ShopPage() {
               >
                 <span>Consultar ahora</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </button>
             </div>
@@ -110,7 +132,7 @@ export default function ShopPage() {
         <div className="flex-grow">
           {filteredProducts.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-16 gap-x-12">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-y-8 gap-x-4 md:gap-y-16 md:gap-x-12">
                 {filteredProducts.map(product => (
                   <ProductCard key={product.id} product={product} />
                 ))}

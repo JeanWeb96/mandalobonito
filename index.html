@@ -1,11 +1,19 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpeg" href="https://storage.googleapis.com/prompt-engineering-agent-prompts/prod/268f7601-527e-462f-90e9-a864ed075677/image.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mándalo Bonito</title>
+    
+    <title>Mándalo Bonito | Joyas y Decoración en Resina Artesanal</title>
+    <meta name="description" content="Arte en resina hecho a mano. Lámparas personalizadas, juegos de ajedrez y joyería exclusiva con acabados brillantes.">
+    <meta name="keywords" content="resina, artesanía, personalización, decoración, joyería, Mándalo Bonito">
+    
+    <meta property="og:title" content="Mándalo Bonito | Resina de Alta Calidad" />
+    <meta property="og:description" content="Piezas únicas personalizadas para regalar o decorar tu hogar con un toque brillante." />
+    <meta property="og:image" content="https://storage.googleapis.com/prompt-engineering-agent-prompts/prod/268f7601-527e-462f-90e9-a864ed075677/image.jpg" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,10 +23,14 @@
         theme: {
           extend: {
             colors: {
-              'brand-cream': '#f8f1e6',
+              'brand-cream': '#FAFAFA',
+              'brand-silk': '#F5F5F7',
               'brand-brown': '#3E2723',
               'brand-gold': '#C59D5F',
               'brand-gray': '#99928a',
+            },
+            borderRadius: {
+              'organic': '1rem',
             },
             fontFamily: {
               sans: ['Montserrat', 'sans-serif'],
@@ -40,7 +52,7 @@
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
+  <body class="bg-brand-cream selection:bg-brand-gold/20">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

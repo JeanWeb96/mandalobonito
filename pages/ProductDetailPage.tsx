@@ -45,15 +45,20 @@ export default function ProductDetailPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-start">
         {/* Gallery */}
-        <div className="space-y-6">
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden aspect-[4/5] relative group">
-            <img src={mainImage} alt={product.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+        <div className="space-y-8">
+          <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden aspect-[4/5] relative group border border-brand-brown/5">
+            <img 
+              src={mainImage} 
+              alt={product.name} 
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 resin-filter" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-6">
             {product.gallery.map((img, index) => (
               <button 
                 key={index} 
-                className={`aspect-square rounded-xl overflow-hidden border-2 transition-all ${mainImage === img ? 'border-brand-gold shadow-md' : 'border-transparent opacity-70 hover:opacity-100'}`} 
+                className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-500 scale-95 hover:scale-100 ${mainImage === img ? 'border-brand-gold shadow-lg shadow-brand-gold/20' : 'border-transparent opacity-60 hover:opacity-100'}`} 
                 onClick={() => setMainImage(img)}
               >
                 <img src={img} alt={`${product.name} - vista ${index + 1}`} className="w-full h-full object-cover" />
@@ -65,9 +70,12 @@ export default function ProductDetailPage() {
         {/* Info */}
         <div className="space-y-10">
           <div>
-            <span className="text-brand-gold font-sans uppercase tracking-[0.3em] text-xs font-bold">{product.categories}</span>
-            <h1 className="font-display text-6xl text-brand-brown mt-4 mb-6 leading-tight">{product.name}</h1>
-            <p className="text-4xl text-brand-gold font-sans font-light">{product.price.toFixed(2)} €</p>
+            <span className="text-brand-gold font-sans uppercase tracking-[0.4em] text-[10px] font-bold bg-brand-gold/5 px-4 py-2 rounded-full border border-brand-gold/10 inline-block">{product.categories.join(' & ')}</span>
+            <h1 className="font-display text-6xl md:text-7xl text-brand-brown mt-8 mb-6 leading-tight font-bold">{product.name}</h1>
+            <div className="flex items-baseline gap-4">
+              <p className="text-5xl text-brand-gold font-sans font-bold tracking-tight">{currentPrice.toFixed(2)} €</p>
+              <span className="text-brand-gray text-xs uppercase tracking-widest">+ Envío gestionado por experto</span>
+            </div>
           </div>
           
           {product.variants && (
@@ -135,14 +143,30 @@ export default function ProductDetailPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 pt-10 border-t border-brand-brown/5">
-             <div className="text-center">
-                <p className="font-sans uppercase tracking-widest text-[10px] font-bold text-brand-gold mb-2">Envío Artesanal</p>
-                <p className="text-xs text-brand-gray">Hecho a mano con calma</p>
+          {/* Trust Sections Refined */}
+          <div className="grid grid-cols-3 gap-4 border-y border-brand-brown/5 py-8">
+            <div className="flex flex-col items-center gap-2 text-center">
+              <svg className="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <span className="text-[8px] font-bold uppercase tracking-widest text-brand-brown/40">Calidad Protegida</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <svg className="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              <span className="text-[8px] font-bold uppercase tracking-widest text-brand-brown/40">Trabajo Manual</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <svg className="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span className="text-[8px] font-bold uppercase tracking-widest text-brand-brown/40">Soporte Directo</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-6 pt-6 uppercase tracking-[0.2em] text-[10px] font-bold">
+             <div className="flex flex-col items-center p-4 bg-brand-gold/5 rounded-2xl border border-brand-gold/10">
+                <p className="text-brand-gold mb-1">Envío Artesanal</p>
+                <p className="text-brand-gray/60 font-sans">Empaquetado con mimo</p>
              </div>
-             <div className="text-center">
-                <p className="font-sans uppercase tracking-widest text-[10px] font-bold text-brand-gold mb-2">Calidad Premium</p>
-                <p className="text-xs text-brand-gray">Resinas de alta durabilidad</p>
+             <div className="flex flex-col items-center p-4 bg-brand-gold/5 rounded-2xl border border-brand-gold/10">
+                <p className="text-brand-gold mb-1">Garantía Resina</p>
+                <p className="text-brand-gray/60 font-sans">Alta durabilidad</p>
              </div>
           </div>
         </div>

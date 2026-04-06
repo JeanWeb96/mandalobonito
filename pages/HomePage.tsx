@@ -60,8 +60,8 @@ export default function HomePage() {
                 {/* Glow efecto */}
                 <div className="absolute inset-[-50px] bg-brand-gold blur-[150px] opacity-20 rounded-full"></div>
                 
-                {/* Contenedor del Logo con Recorte para ajustar el borde */}
-                <div className="h-64 w-64 md:h-96 md:w-96 rounded-full border-4 border-brand-gold shadow-[0_35px_60px_-15px_rgba(62,39,35,0.3)] overflow-hidden relative z-10 bg-white transition-transform duration-1000 group-hover:scale-105">
+                {/* Contenedor del Logo con Animación de Gota en Caída */}
+                <div className="h-72 w-72 md:h-96 md:w-96 rounded-full border-4 border-brand-gold shadow-[0_35px_60px_-15px_rgba(62,39,35,0.3)] overflow-hidden relative z-10 bg-white transition-transform duration-1000 group-hover:scale-105 animate-dropIn">
                   <img 
                     src={LOGO_URL} 
                     alt="Mándalo Bonito" 
@@ -85,11 +85,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Estilo adicional para la animación de zoom */}
+      {/* Estilos para las animaciones */}
       <style>{`
         @keyframes zoom {
           from { transform: scale(1); }
           to { transform: scale(1.15); }
+        }
+
+        @keyframes dropIn {
+          0% {
+            transform: translateY(-1000px) scaleY(1.8) scaleX(0.7);
+            opacity: 0;
+          }
+          60% {
+            transform: translateY(30px) scaleY(0.6) scaleX(1.3);
+            opacity: 1;
+          }
+          80% {
+            transform: translateY(-10px) scaleY(1.1) scaleX(0.9);
+          }
+          100% {
+            transform: translateY(0) scaleY(1) scaleX(1);
+            opacity: 1;
+          }
+        }
+
+        .animate-dropIn {
+          animation: dropIn 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+          transform-origin: bottom center;
         }
       `}</style>
 

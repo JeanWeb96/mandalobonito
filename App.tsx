@@ -30,7 +30,7 @@ export default function App() {
   return (
     <HashRouter>
       <ScrollToTop />
-      <div className="bg-brand-cream text-brand-brown font-sans min-h-screen flex flex-col">
+      <div className="bg-brand-cream text-brand-brown font-sans min-h-screen flex flex-col selection:bg-brand-gold/10 selection:text-brand-gold">
         <Header />
         <main className="flex-grow">
           <Routes>

@@ -10,7 +10,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white/50 border-t border-brand-brown/10 mt-16">
+    <footer className="relative bg-white/40 backdrop-blur-md border-t border-brand-brown/5 mt-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-silk/50 to-transparent pointer-events-none"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
           <div className="flex justify-center md:justify-start">
@@ -41,16 +42,21 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-4 pt-4 border-t border-brand-brown/10 text-center text-sm text-brand-gray">
-          <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4 mb-4">
-            <Link to="/aviso-legal" className="hover:text-brand-gold transition-colors">Aviso Legal</Link>
-            <Link to="/politica-privacidad" className="hover:text-brand-gold transition-colors">Privacidad</Link>
-            <Link to="/faq" className="hover:text-brand-gold transition-colors">Preguntas Frecuentes</Link>
-            <Link to="/politica-reembolso" className="hover:text-brand-gold transition-colors">Política de Reembolso</Link>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8 border-b border-brand-brown/5 pb-8">
+            <div className="flex flex-wrap justify-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold">
+              <Link to="/aviso-legal" className="hover:text-brand-gold transition-colors">Aviso Legal</Link>
+              <Link to="/politica-privacidad" className="hover:text-brand-gold transition-colors">Privacidad RGPD</Link>
+              <Link to="/faq" className="hover:text-brand-gold transition-colors">Preguntas Frecuentes</Link>
+              <Link to="/politica-reembolso" className="hover:text-brand-gold transition-colors">Política de Reembolso</Link>
+            </div>
+            
+            <div className="flex items-center gap-2 text-brand-gray/40">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M2.166 4.9L9.03 1.2a2 2 0 011.94 0l6.864 3.7A2 2 0 0119 6.62v6.76a2 2 0 01-1.166 1.83l-6.864 3.7a2 2 0 01-1.94 0l-6.864-3.7A2 2 0 011 13.38V6.62a2 2 0 011.166-1.72zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" /></svg>
+              <span className="text-[10px] font-bold uppercase tracking-widest leading-none">Navegación Protegida SSL</span>
+            </div>
           </div>
-          <p>&copy; {new Date().getFullYear()} Mándalo Bonito. Todos los derechos reservados.</p>
+          <p className="text-[11px] tracking-widest uppercase font-bold text-brand-gray/40">&copy; {new Date().getFullYear()} Mándalo Bonito. Elaboración artesanal con resinas premium.</p>
         </div>
-      </div>
     </footer>
   );
 }
