@@ -48,6 +48,7 @@ export default function HomePage() {
             src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2000" 
             className="w-full h-full object-cover opacity-20 transition-transform duration-[10000ms] ease-linear scale-100 animate-[zoom_20s_infinite_alternate]"
             alt="Textura de resina fluida"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/60"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_white_80%)] opacity-40"></div>
