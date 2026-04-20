@@ -113,14 +113,14 @@ export default function WorkshopsPage() {
           </div>
           <div className="col-span-1 row-span-2 overflow-hidden rounded-[2.5rem] shadow-lg group">
             <img 
-              src="img/taller6.webp" 
+              src="img/taller6.png" 
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
               alt="Proceso creativo" 
             />
           </div>
           <div className="col-span-1 row-span-1 overflow-hidden rounded-3xl shadow-lg group">
             <img 
-              src="img/taller4.webp" 
+              src="img/taller4.png" 
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
               alt="Resultado final" 
             />
