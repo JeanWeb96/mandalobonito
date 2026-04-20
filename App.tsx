@@ -15,6 +15,8 @@ import WorkshopsPage from './pages/WorkshopsPage';
 import OnlineCoursePage from './pages/OnlineCoursePage';
 import LegalNoticePage from './pages/LegalNoticePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import { CookieBannerProvider } from './components/CookieBanner';
+import AnalyticsScript from './components/AnalyticsScript';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -28,10 +30,12 @@ const ScrollToTop = () => {
 
 export default function App() {
   return (
-    <HashRouter>
-      <ScrollToTop />
-      <div className="bg-brand-cream text-brand-brown font-sans min-h-screen flex flex-col selection:bg-brand-gold/10 selection:text-brand-gold">
-        <Header />
+    <CookieBannerProvider>
+      <AnalyticsScript />
+      <HashRouter>
+        <ScrollToTop />
+        <div className="bg-brand-cream text-brand-brown font-sans min-h-screen flex flex-col selection:bg-brand-gold/10 selection:text-brand-gold">
+          <Header />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -49,7 +53,8 @@ export default function App() {
         </main>
         <Footer />
         <WhatsAppButton />
-      </div>
-    </HashRouter>
+        </div>
+      </HashRouter>
+    </CookieBannerProvider>
   );
 }
