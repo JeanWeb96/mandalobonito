@@ -96,7 +96,7 @@ export default function WorkshopsPage() {
           <h2 className="font-display text-5xl text-brand-brown italic">Nuestra Galería</h2>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[600px] md:h-[800px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[800px] md:h-[1050px]">
           <div className="col-span-2 row-span-2 overflow-hidden rounded-[2.5rem] shadow-lg group">
             <img 
               src="img/taller1.jpg" 
@@ -123,6 +123,13 @@ export default function WorkshopsPage() {
               src="img/taller4.png" 
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
               alt="Resultado final" 
+            />
+          </div>
+          <div className="col-span-2 row-span-2 overflow-hidden rounded-[2.5rem] shadow-lg group">
+            <img 
+              src="img/taller7.jpeg" 
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+              alt="Momento especial en el taller" 
             />
           </div>
           <div className="col-span-2 row-span-1 overflow-hidden rounded-[2.5rem] shadow-lg group">
