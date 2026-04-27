@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import { useCookieConsent } from "./CookieBanner";
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 export default function AnalyticsScript() {
   const { preferences, hasConsented } = useCookieConsent();
 
