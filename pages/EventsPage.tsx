@@ -44,7 +44,7 @@ const BudgetForm: React.FC<BudgetFormProps> = ({ sectionTitle, placeholderTheme,
             type="text" 
             placeholder="¿Cómo te llamamos?" 
             required
-            className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-sm transition-all rounded-lg"
+            className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-brand-brown text-sm transition-all rounded-lg"
             onChange={e => setFormData({...formData, name: e.target.value})}
           />
         </div>
@@ -54,7 +54,7 @@ const BudgetForm: React.FC<BudgetFormProps> = ({ sectionTitle, placeholderTheme,
             type="email" 
             placeholder="Email de contacto" 
             required
-            className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-sm transition-all rounded-lg"
+            className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-brand-brown text-sm transition-all rounded-lg"
             onChange={e => setFormData({...formData, email: e.target.value})}
           />
         </div>
@@ -66,7 +66,7 @@ const BudgetForm: React.FC<BudgetFormProps> = ({ sectionTitle, placeholderTheme,
           <input 
             type="number" 
             placeholder="Aprox." 
-            className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-sm transition-all rounded-lg"
+            className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-brand-brown text-sm transition-all rounded-lg"
             onChange={e => setFormData({...formData, quantity: e.target.value})}
           />
         </div>
@@ -76,7 +76,7 @@ const BudgetForm: React.FC<BudgetFormProps> = ({ sectionTitle, placeholderTheme,
             type="text" 
             placeholder={placeholderTheme} 
             required
-            className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-sm transition-all rounded-lg"
+            className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-brand-brown text-sm transition-all rounded-lg"
             onChange={e => setFormData({...formData, theme: e.target.value})}
           />
         </div>
@@ -87,7 +87,7 @@ const BudgetForm: React.FC<BudgetFormProps> = ({ sectionTitle, placeholderTheme,
         <textarea 
           placeholder="Describe materiales, colores, nombres..." 
           rows={3}
-          className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-sm transition-all rounded-lg resize-none"
+          className="w-full p-3 bg-brand-cream/20 border-b border-brand-brown/10 focus:border-brand-gold outline-none font-sans text-brand-brown text-sm transition-all rounded-lg resize-none"
           onChange={e => setFormData({...formData, details: e.target.value})}
         ></textarea>
       </div>
