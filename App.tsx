@@ -16,7 +16,6 @@ import OnlineCoursePage from './pages/OnlineCoursePage';
 import LegalNoticePage from './pages/LegalNoticePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import { CookieBannerProvider } from './components/CookieBanner';
-import AnalyticsScript from './components/AnalyticsScript';
 import { Analytics } from '@vercel/analytics/react';
 
 const ScrollToTop = () => {
@@ -33,7 +32,6 @@ export default function App() {
   return (
     <CookieBannerProvider>
       <Analytics />
-      <AnalyticsScript />
       <HashRouter>
         <ScrollToTop />
         <div className="bg-brand-cream text-brand-brown font-sans min-h-screen flex flex-col selection:bg-brand-gold/10 selection:text-brand-gold">
