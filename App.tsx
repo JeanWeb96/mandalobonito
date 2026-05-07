@@ -17,6 +17,7 @@ import LegalNoticePage from './pages/LegalNoticePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import { CookieBannerProvider } from './components/CookieBanner';
 import AnalyticsScript from './components/AnalyticsScript';
+import { Analytics } from '@vercel/analytics/react';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,6 +32,7 @@ const ScrollToTop = () => {
 export default function App() {
   return (
     <CookieBannerProvider>
+      <Analytics />
       <AnalyticsScript />
       <HashRouter>
         <ScrollToTop />
