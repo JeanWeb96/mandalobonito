@@ -433,6 +433,20 @@ export const products: Product[] = [
     customization: true,
   },
   {
+    id: 'pendiente2',
+    name: 'Pendiente personalizado',
+    price: 12,
+    image: 'img/pendiente6.webp',
+    gallery: [
+        'img/pendiente6.webp',
+        'img/pendiente4.webp',
+        'img/pendiente5.webp',
+    ],
+    description: 'Pendientes personalizado, una pieza única donde el control del color y la ligereza definen el estilo. No es un accesorio, es una declaración de identidad intransferible. Cada pieza está cuidadosamente elaborada en resina de alta calidad, con un acabado brillante y duradero. Precio sin gastos de envío.',
+    categories: ['Complementos'],
+    customization: true,
+  },
+  {
     id: 'navidad-bolas',
     name: 'Bolas Navideñas Personalizas',
     price: 8,
