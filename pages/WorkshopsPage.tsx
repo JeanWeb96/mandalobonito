@@ -27,7 +27,7 @@ const workshops: Workshop[] = [
     title: 'Talleres recreativos de resina acrílica con pica-pica',
     category: 'Actividad Grupal',
     description: 'Experiencia pensada para desconectar y crear sin presión. Incluimos pica-pica en sesiones grupales para compartir y reír. Al final, realizamos una foto grupal para inmortalizar el recuerdo. Creas con tus manos, conectas con el momento y te llevas una experiencia única.',
-    image: 'img/taller1.jpg',
+    image: 'img/talleracrilica.webp',
     priceInfo: 'Desde 20€/pers.',
     duration: '1:30 Horas'
   }
@@ -57,10 +57,10 @@ export default function WorkshopsPage() {
         {workshops.map((workshop) => (
           <div key={workshop.id} className="bg-white rounded-[3rem] overflow-hidden shadow-2xl flex flex-col group border border-brand-brown/5 transition-all duration-500 hover:shadow-brand-gold/10">
             <div className="h-80 overflow-hidden relative">
-              <img 
-                src={workshop.image} 
-                alt={workshop.title} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              <img
+                src={workshop.image}
+                alt={workshop.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute top-6 left-6 bg-brand-gold/90 backdrop-blur text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">
                 {workshop.category}
@@ -76,7 +76,7 @@ export default function WorkshopsPage() {
               </p>
               <div className="pt-8 border-t border-brand-brown/10 flex items-center justify-between mt-auto">
                 <span className="font-sans font-bold text-brand-gold text-2xl">{workshop.priceInfo}</span>
-                <button 
+                <button
                   onClick={() => handleInterest(workshop.title)}
                   className="flex items-center gap-3 bg-brand-gold text-white px-8 py-4 rounded-full hover:bg-brand-brown transition-all shadow-xl hover:shadow-brand-gold/40 text-sm font-bold uppercase tracking-widest"
                 >
@@ -95,59 +95,59 @@ export default function WorkshopsPage() {
           <span className="text-brand-gold font-sans uppercase tracking-[0.4em] text-[10px] font-bold mb-4 block">Momentos</span>
           <h2 className="font-display text-5xl text-brand-brown italic">Nuestra Galería</h2>
         </div>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[800px] md:h-[1050px]">
           <div className="col-span-2 row-span-2 overflow-hidden rounded-[2.5rem] shadow-lg group">
-            <img 
-              src="img/taller1.jpg" 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-              alt="Ambiente de taller" 
+            <img
+              src="img/taller1.jpg"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              alt="Ambiente de taller"
             />
           </div>
           <div className="col-span-1 row-span-1 overflow-hidden rounded-3xl shadow-lg group">
-            <img 
-              src="img/taller2.webp" 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-              alt="Detalle de resina" 
+            <img
+              src="img/taller2.webp"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              alt="Detalle de resina"
             />
           </div>
           <div className="col-span-1 row-span-2 overflow-hidden rounded-[2.5rem] shadow-lg group">
-            <img 
-              src="img/taller6.png" 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-              alt="Proceso creativo" 
+            <img
+              src="img/taller6.png"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              alt="Proceso creativo"
             />
           </div>
           <div className="col-span-1 row-span-1 overflow-hidden rounded-3xl shadow-lg group">
-            <img 
-              src="img/taller4.png" 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-              alt="Resultado final" 
+            <img
+              src="img/taller4.png"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              alt="Resultado final"
             />
           </div>
           <div className="col-span-2 row-span-2 overflow-hidden rounded-[2.5rem] shadow-lg group">
-            <img 
-              src="img/taller7.jpeg" 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-              alt="Momento especial en el taller" 
+            <img
+              src="img/taller7.jpeg"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              alt="Momento especial en el taller"
             />
           </div>
           <div className="col-span-2 row-span-1 overflow-hidden rounded-[2.5rem] shadow-lg group">
-            <img 
-              src="img/taller5.webp" 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-              alt="Grupo trabajando" 
+            <img
+              src="img/taller5.webp"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              alt="Grupo trabajando"
             />
           </div>
           <div className="col-span-2 row-span-1 overflow-hidden rounded-[2.5rem] shadow-lg group">
-            <img 
-              src="img/taller3.webp" 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-              alt="Grupo trabajando" 
+            <img
+              src="img/taller3.webp"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              alt="Grupo trabajando"
             />
           </div>
         </div>
-      </section>  
+      </section>
 
       {/* Nueva Sección de Ubicación - Opción 2 */}
       <section className="mt-24 max-w-4xl mx-auto">
@@ -166,9 +166,9 @@ export default function WorkshopsPage() {
             <p className="font-sans text-brand-gray tracking-widest uppercase text-sm font-medium">08923 Santa Coloma de Gramenet, Barcelona</p>
           </div>
           <div className="pt-4">
-            <a 
-              href={googleMapsUrl} 
-              target="_blank" 
+            <a
+              href={googleMapsUrl}
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-block text-brand-gold border-b border-brand-gold pb-1 font-sans text-xs uppercase tracking-[0.2em] font-bold hover:text-brand-brown hover:border-brand-brown transition-all"
             >
@@ -184,7 +184,7 @@ export default function WorkshopsPage() {
         <p className="text-xl text-brand-cream/70 mb-12 font-light max-w-2xl mx-auto relative z-10 italic">
           Organizamos talleres privados para cumpleaños, despedidas o team building. Nos adaptamos a vuestras ideas para crear un momento inolvidable. A partir de 20€/pers. 1:30 Horas.
         </p>
-        <button 
+        <button
           onClick={() => handleInterest("Taller Grupal / Evento")}
           className="bg-brand-gold text-white px-16 py-5 rounded-full hover:bg-white hover:text-brand-brown transition-all shadow-2xl font-bold uppercase tracking-[0.2em] text-xs relative z-10"
         >
