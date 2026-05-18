@@ -45,17 +45,17 @@ graph TD
     F --> F4[EventsPage & Workshops]
     F --> F5[Contact & Support Pages]
     
-    F2 -.-> I[constants.ts - Static Products Database]
+    F2 -.-> I[constants.ts - Base de Datos Estática de Productos]
     F3 -.-> I
     
-    J[firebase.ts] -.-> K[Future Cloud Firestore Sync]
+    J[Futuro Panel / Config] -.-> K[Sincronización con Supabase]
 ```
 
 ### Arquitectura de Software y Decisiones Clave
 
 1.  **Vite + React (TypeScript) como Núcleo**:
     *   **¿Por qué Vite?**: Ofrece una compilación y recarga en caliente (HMR) casi instantánea, ideal para un ciclo de desarrollo ágil.
-    *   **¿Por qué TypeScript?**: Provee tipado estricto para las entidades principales del sistema (por ejemplo), la definición estricta del tipo `Product` en [types.ts], evitando errores comunes durante la compilación y asegurando que las variantes de precios y fotos siempre estén estructuradas correctamente.
+    *   **¿Por qué TypeScript?**: Provee tipado estricto para las entidades principales del sistema (por ejemplo, la definición estricta del tipo `Product` en [types.ts]), evitando errores comunes durante la compilación y asegurando que las variantes de precios y fotos siempre estén estructuradas correctamente.
 2.  **Tailwind CSS v4 (Motor de Estilos de Nueva Generación)**:
     *   Integrado en [index.css] con el nuevo estándar `@theme`.
     *   Permite un control granular del diseño responsivo mediante utilidades altamente optimizadas.
@@ -66,8 +66,8 @@ graph TD
     *   En [index.css], se ha implementado un filtro CSS personalizado llamado `.resin-filter`. 
     *   Este filtro optimiza el contraste y la saturación de las imágenes de los productos artesanales y, mediante un pseudoelemento `::after` con un gradiente lineal y una transformación `skewX`, genera un **destello de luz brillante reflectante** que cruza el producto al pasar el ratón por encima (hover), imitando de forma interactiva el acabado brillante de la resina epoxi pulida.
     *   Se ha establecido una transición global (`* { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }`) para asegurar que todos los cambios de estado sean suaves y fluidos.
-5.  **Firebase & Firestore Ready ([firebase.ts])**:
-    *   La base de datos de Firebase (Cloud Firestore) está configurada e inicializada. Aunque actualmente la tienda carga los productos desde el archivo estático de configuración [constants.ts] para optimizar el rendimiento inicial de carga offline, la arquitectura está completamente preparada para que en el futuro se puedan leer los productos de forma dinámica, gestionar reservas de eventos, y guardar leads de contacto en la nube en tiempo real.
+5.  **Preparado para Base de Datos Dinámica (Futuro Supabase)**:
+    *   La arquitectura actual carga los productos desde el archivo estático [constants.ts] para maximizar la velocidad de carga inicial y asegurar el soporte sin conexión. No obstante, el sistema está completamente preparado para migrar a una base de datos relacional y almacenamiento de imágenes en la nube (como **Supabase**). Esto posibilitará que el cliente final disponga en el futuro de una interfaz de edición intuitiva y arrastrable (tipo hoja de cálculo o panel de administración) para añadir, editar o quitar productos, talleres e imágenes en tiempo real de forma autónoma.
 6.  **Cookies & Analíticas de Rendimiento Silenciosas**:
     *   Integra un `CookieBannerProvider` modular que bloquea cualquier script de rastreo hasta que el usuario dé su consentimiento expreso de acuerdo con las normativas europeas RGPD.
     *   Usa el script ultraligero `@vercel/analytics` para recopilar métricas de rendimiento del sitio de manera no intrusiva y respetuosa con la privacidad.
