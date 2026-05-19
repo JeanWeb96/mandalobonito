@@ -59,26 +59,26 @@ export default function HomePage() {
         <div className="container mx-auto px-4 relative z-10 text-center">
           <ScrollReveal>
             <div className="flex flex-col items-center">
-              <div className="relative mb-8 group">
+              <div className="relative mb-5 md:mb-8 group">
                 {/* Glow efecto */}
                 <div className="absolute inset-[-50px] bg-brand-gold blur-[150px] opacity-20 rounded-full"></div>
-                
+
                 {/* Contenedor del Logo con Animación de Gota en Caída */}
-                <div className="h-72 w-72 md:h-96 md:w-96 rounded-full border-4 border-brand-gold shadow-[0_35px_60px_-15px_rgba(62,39,35,0.3)] overflow-hidden relative z-10 bg-white transition-transform duration-1000 group-hover:scale-105 animate-dropIn">
-                  <img 
-                    src={LOGO_URL} 
-                    alt="Mándalo Bonito" 
-                    className="w-full h-full object-cover scale-[1.12]" 
+                <div className="h-52 w-52 sm:h-64 sm:w-64 md:h-96 md:w-96 rounded-full border-4 border-brand-gold shadow-[0_35px_60px_-15px_rgba(62,39,35,0.3)] overflow-hidden relative z-10 bg-white transition-transform duration-1000 group-hover:scale-105 animate-dropIn">
+                  <img
+                    src={LOGO_URL}
+                    alt="Mándalo Bonito"
+                    className="w-full h-full object-cover scale-[1.12]"
                   />
                 </div>
               </div>
-              <h1 className="font-display text-5xl md:text-8xl text-brand-brown max-w-5xl mx-auto leading-[1.1] tracking-tight">
+              <h1 className="font-display text-4xl sm:text-5xl md:text-8xl text-brand-brown max-w-5xl mx-auto leading-[1.1] tracking-tight">
                 Artesanía que <span className="text-brand-gold italic">emociona</span>
               </h1>
-              <p className="mt-8 text-lg md:text-xl text-brand-gray font-sans tracking-[0.3em] uppercase font-light">
+              <p className="mt-4 md:mt-8 text-sm sm:text-lg md:text-xl text-brand-gray font-sans tracking-[0.3em] uppercase font-light">
                 Piezas Únicas • Resina • Alma Artesana
               </p>
-              <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
+              <div className="mt-6 md:mt-12 flex flex-col sm:flex-row items-center gap-4">
                 {/* CTA primario — relleno, llama la atención */}
                 <Link
                   to="/catalogo"
