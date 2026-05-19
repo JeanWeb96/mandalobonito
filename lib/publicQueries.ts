@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { supabase } from './supabase';
+import { db } from './postgrest';
 import type { Product, ProductVariant } from '../types';
 
 // ── Mapper: fila de Supabase → Product interface existente ────
@@ -46,7 +46,7 @@ export function usePublicCategories() {
   return useQuery({
     queryKey: ['public', 'categories'],
     queryFn: async () => {
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from('categories')
         .select('id, name, slug, display_order')
         .order('display_order', { ascending: true });
@@ -65,7 +65,7 @@ export function usePublicProducts(filters?: { categoryId?: string | null; search
       let query: any;
 
       if (filters?.categoryId) {
-        query = supabase
+        query = db
           .from('products')
           .select(PUBLIC_SELECT_INNER)
           .eq('product_categories.category_id', filters.categoryId)
@@ -73,7 +73,7 @@ export function usePublicProducts(filters?: { categoryId?: string | null; search
           .is('deleted_at', null)
           .order('display_order', { ascending: true });
       } else {
-        query = supabase
+        query = db
           .from('products')
           .select(PUBLIC_SELECT)
           .eq('is_active', true)
@@ -96,7 +96,7 @@ export function usePublicProduct(id: string | undefined) {
     queryKey: ['public', 'products', id],
     queryFn: async (): Promise<Product | null> => {
       if (!id) return null;
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from('products')
         .select(PUBLIC_SELECT)
         .eq('id', id)

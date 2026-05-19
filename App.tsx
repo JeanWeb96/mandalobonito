@@ -6,7 +6,6 @@ import Footer         from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import { CookieBannerProvider, useCookieConsent } from './components/CookieBanner';
 import { Analytics }  from '@vercel/analytics/react';
-import AuthGuard      from './admin/components/AuthGuard';
 
 // ── Páginas públicas: chunk propio, cargado solo al navegar ───
 const HomePage          = lazy(() => import('./pages/HomePage'));
@@ -22,8 +21,11 @@ const LegalNoticePage   = lazy(() => import('./pages/LegalNoticePage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 
 // ── Admin: chunk separado, nunca descargado por visitantes ────
-const LoginPage     = lazy(() => import('./admin/LoginPage'));
-const DashboardPage = lazy(() => import('./admin/DashboardPage'));
+// AdminProtected envuelve AuthGuard + DashboardPage en un solo dynamic import,
+// de modo que @supabase/supabase-js (auth, realtime, storage) solo se carga
+// cuando alguien visita /admin — nunca en páginas públicas.
+const LoginPage      = lazy(() => import('./admin/LoginPage'));
+const AdminProtected = lazy(() => import('./admin/AdminProtected'));
 
 // ── React Query ───────────────────────────────────────────────
 const queryClient = new QueryClient({
@@ -98,8 +100,8 @@ export default function App() {
           <Suspense fallback={<PageSpinner />}>
             <Routes>
               <Route path="/admin/login"     element={<LoginPage />} />
-              <Route path="/admin/dashboard" element={<AuthGuard><DashboardPage /></AuthGuard>} />
-              <Route path="/admin"           element={<AuthGuard><DashboardPage /></AuthGuard>} />
+              <Route path="/admin/dashboard" element={<AdminProtected />} />
+              <Route path="/admin"           element={<AdminProtected />} />
               <Route path="/*"               element={<PublicLayout />} />
             </Routes>
           </Suspense>

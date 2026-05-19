@@ -15,11 +15,12 @@ const ProductCard: React.FC<ProductCardProps> = React.memo(({ product, showPrice
     <div className="bg-white rounded-organic shadow-sm overflow-hidden group transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 liquid-gradient border border-brand-brown/5">
       <Link to={`/catalogo/${product.id}`}>
         <div className="overflow-hidden aspect-[4/5] relative">
-            <img 
-              src={product.image} 
-              alt={product.name} 
-              loading="lazy" 
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out resin-filter" 
+            <img
+              src={product.image}
+              alt={product.name}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out resin-filter"
             />
             {/* Glossy Overlay Highlight */}
             <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

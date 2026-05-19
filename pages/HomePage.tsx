@@ -47,7 +47,7 @@ export default function HomePage() {
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-white">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2000" 
+            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=65&w=1400" 
             className="w-full h-full object-cover opacity-20 transition-transform duration-[10000ms] ease-linear scale-100 animate-[zoom_20s_infinite_alternate]"
             alt="Textura de resina fluida"
             fetchPriority="high"

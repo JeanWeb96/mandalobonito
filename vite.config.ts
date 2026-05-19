@@ -37,6 +37,9 @@ export default defineConfig(({ mode }) => {
           // Chunks separados → el navegador los cachea individualmente entre deploys
           manualChunks(id: string) {
             if (!id.includes('node_modules')) return;
+            // postgrest-js → páginas públicas (sin auth/realtime/storage)
+            // supabase-js full → solo admin (lazy)
+            if (id.includes('@supabase/postgrest-js'))                                          return 'postgrest';
             if (id.includes('@supabase'))                                                        return 'supabase';
             if (id.includes('@tanstack'))                                                        return 'query';
             if (id.includes('@dnd-kit'))                                                         return 'dnd';
