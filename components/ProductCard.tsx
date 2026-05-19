@@ -8,7 +8,9 @@ interface ProductCardProps {
   showPrice?: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, showPrice = true }) => {
+// React.memo: evita re-renders cuando el padre actualiza estado (ej: buscador)
+// pero las props del producto no han cambiado.
+const ProductCard: React.FC<ProductCardProps> = React.memo(({ product, showPrice = true }) => {
   return (
     <div className="bg-white rounded-organic shadow-sm overflow-hidden group transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 liquid-gradient border border-brand-brown/5">
       <Link to={`/catalogo/${product.id}`}>
@@ -39,6 +41,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, showPrice = true }) 
       </Link>
     </div>
   );
-};
+});
+
+ProductCard.displayName = 'ProductCard';
 
 export default ProductCard;

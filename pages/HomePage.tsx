@@ -1,11 +1,10 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { products, LOGO_URL } from '../constants';
+import { LOGO_URL } from '../constants';
 import ProductCard from '../components/ProductCard';
 import TestimonialCard from '../components/TestimonialCard';
-
-const featuredProducts = products.slice(0, 4);
+import { usePublicProducts } from '../lib/publicQueries';
 const testimonials = [
   { quote: "¡El llavero para mi padre fue un éxito total! Calidad increíble y un trato muy cercano. Repetiré seguro.", author: "Laura G." },
   { quote: "Los posavasos son preciosos, mucho más bonitos que en las fotos. Se nota que están hechos con mucho mimo.", author: "Carlos M." },
@@ -39,6 +38,9 @@ const ScrollReveal: React.FC<{ children: React.ReactNode; delay?: number }> = ({
 };
 
 export default function HomePage() {
+  const { data: allProducts = [], isLoading } = usePublicProducts();
+  const featuredProducts = allProducts.slice(0, 4);
+
   return (
     <div className="space-y-32 pb-20">
       {/* Hero Section con imagen de resina sutil */}
@@ -76,9 +78,35 @@ export default function HomePage() {
               <p className="mt-8 text-lg md:text-xl text-brand-gray font-sans tracking-[0.3em] uppercase font-light">
                 Piezas Únicas • Resina • Alma Artesana
               </p>
-              <div className="mt-12">
-                <Link to="/catalogo" className="inline-block border-b-2 border-brand-gold pb-2 text-brand-brown hover:text-brand-gold transition-all font-sans uppercase tracking-widest font-bold">
-                  Explorar la Colección
+              <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
+                {/* CTA primario — relleno, llama la atención */}
+                <Link
+                  to="/catalogo"
+                  className="group relative inline-flex items-center gap-3 bg-brand-gold text-white font-sans font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-full shadow-lg shadow-brand-gold/30 hover:bg-brand-brown hover:shadow-brand-brown/30 transition-all duration-300 overflow-hidden"
+                >
+                  {/* Shimmer sweep on hover */}
+                  <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
+                  <span>Ver la Colección</span>
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+
+                {/* CTA secundario — ghost, segundo camino */}
+                <Link
+                  to="/talleres"
+                  className="inline-flex items-center gap-2 border-2 border-brand-brown/20 text-brand-brown font-sans font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:border-brand-gold hover:text-brand-gold transition-all duration-300"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                  </svg>
+                  Nuestros Talleres
                 </Link>
               </div>
             </div>
@@ -140,11 +168,19 @@ export default function HomePage() {
             <Link to="/catalogo" className="text-brand-gold hover:text-brand-brown transition-colors font-sans uppercase tracking-widest text-sm font-bold">Ver todo</Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-            {featuredProducts.map((product, idx) => (
-              <ScrollReveal key={product.id} delay={idx * 150}>
-                <ProductCard product={product} showPrice={false} />
-              </ScrollReveal>
-            ))}
+            {isLoading
+              ? [...Array(4)].map((_, i) => (
+                  <div key={i} className="animate-pulse">
+                    <div className="aspect-[3/4] bg-brand-brown/5 rounded-3xl mb-4" />
+                    <div className="h-4 bg-brand-brown/5 rounded w-3/4 mb-2" />
+                  </div>
+                ))
+              : featuredProducts.map((product, idx) => (
+                  <ScrollReveal key={product.id} delay={idx * 150}>
+                    <ProductCard product={product} showPrice={false} />
+                  </ScrollReveal>
+                ))
+            }
           </div>
         </ScrollReveal>
       </section>
