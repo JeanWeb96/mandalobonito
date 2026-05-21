@@ -20,19 +20,24 @@
     <link rel="apple-touch-icon" href="/favicon-180.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Preconnect: resuelve DNS/TLS antes de que se pidan las fuentes -->
+    <!-- Preconnect críticos: DNS+TLS resueltos antes de que se necesiten -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://kvwdjwdbfqqyokvqqseq.supabase.co" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
 
-    <!-- Fuentes no bloqueantes: se cargan en segundo plano, se aplican al llegar -->
-    <link rel="preload" as="style"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+    <!-- LCP: el logo es el elemento de mayor contenido visible — lo descubrimos desde el HTML
+         para que el browser lo empiece a descargar sin esperar a que cargue el JS -->
+    <link rel="preload" as="image" href="/img/logo.png" fetchpriority="high">
+
+    <!-- Fuentes no bloqueantes (display=optional: sin reflow al cargar → 0 CLS de fuentes)
+         Sin <link rel="preload as="style"> porque ese hint crea una cadena crítica extra -->
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=optional"
       media="print" onload="this.media='all'">
     <noscript>
       <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=optional">
     </noscript>
 
     <link rel="stylesheet" href="/index.css">

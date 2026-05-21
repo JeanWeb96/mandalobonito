@@ -31,7 +31,7 @@ const ScrollReveal: React.FC<{ children: React.ReactNode; delay?: number }> = ({
   }, [delay]);
 
   return (
-    <div ref={ref} className="transition-all duration-1000 ease-out opacity-0 translate-y-12">
+    <div ref={ref} className="transition-[opacity,transform] duration-1000 ease-out opacity-0 translate-y-12">
       {children}
     </div>
   );
@@ -46,11 +46,13 @@ export default function HomePage() {
       {/* Hero Section con imagen de resina sutil */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-white">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=65&w=1400" 
+          {/* Imagen decorativa: aria-hidden, sin fetchPriority (no compite con el LCP) */}
+          <img
+            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=65&w=1400"
             className="w-full h-full object-cover opacity-20 transition-transform duration-[10000ms] ease-linear scale-100 animate-[zoom_20s_infinite_alternate]"
-            alt="Textura de resina fluida"
-            fetchPriority="high"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/60"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_white_80%)] opacity-40"></div>
@@ -65,9 +67,14 @@ export default function HomePage() {
 
                 {/* Contenedor del Logo con Animación de Gota en Caída */}
                 <div className="h-52 w-52 sm:h-64 sm:w-64 md:h-96 md:w-96 rounded-full border-4 border-brand-gold shadow-[0_35px_60px_-15px_rgba(62,39,35,0.3)] overflow-hidden relative z-10 bg-white transition-transform duration-1000 group-hover:scale-105 animate-dropIn">
+                  {/* LCP: fetchpriority high + dimensiones explícitas para evitar CLS */}
                   <img
                     src={LOGO_URL}
                     alt="Mándalo Bonito"
+                    width={512}
+                    height={512}
+                    fetchPriority="high"
+                    decoding="sync"
                     className="w-full h-full object-cover scale-[1.12]"
                   />
                 </div>

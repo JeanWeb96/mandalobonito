@@ -1,10 +1,9 @@
 import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(({ mode }) => {
-  const env    = loadEnv(mode, '.', '');
   const isProd = mode === 'production';
 
   return {
@@ -31,6 +30,8 @@ export default defineConfig(({ mode }) => {
       cssMinify: true,
       sourcemap: false,
       chunkSizeWarningLimit: 600,
+      // El polyfill de modulepreload es innecesario: target ES2022 = browsers modernos
+      modulePreload: { polyfill: false },
 
       rollupOptions: {
         output: {
