@@ -213,7 +213,7 @@ export default function EventsPage() {
               {/* Galería Mosaico Bautizos */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[500px]">
                 <div className="col-span-2 row-span-2 overflow-hidden rounded-[2.5rem]">
-                  <img src="img/bautismo5.png" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Bautizo Principal" />
+                  <img src="img/bautismo5.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Bautizo Principal" />
                 </div>
                 <div className="overflow-hidden rounded-2xl">
                   <img src="img/bautismo7.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Llavero" />
@@ -222,7 +222,7 @@ export default function EventsPage() {
                   <img src="img/bautismo8.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Portafotos" />
                 </div>
                 <div className="col-span-2 overflow-hidden rounded-[2.5rem]">
-                  <img src="img/bautismo3.jpeg" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Bautizo Atmosfera" />
+                  <img src="img/bautismo3.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Bautizo Atmosfera" />
                 </div>
               </div>
             </div>
@@ -351,10 +351,10 @@ export default function EventsPage() {
                   <img src="img/boda1.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Mesa Boda" />
                 </div>
                 <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda3.png" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Regalo Invitados Boda" />
+                  <img src="img/boda3.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Regalo Invitados Boda" />
                 </div>
                 <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl md:col-start-1">
-                  <img src="img/boda4.png" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Flores Resina" />
+                  <img src="img/boda4.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Flores Resina" />
                 </div>
                 <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl">
                   <img src="img/boda5.png" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Textura Resina Bodas" />
