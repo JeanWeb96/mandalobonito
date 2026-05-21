@@ -343,21 +343,27 @@ export default function EventsPage() {
               </div>
 
               {/* Galería Mosaico Bodas */}
+              {/* Móvil: 2×2 cuadrados + panorámica de cierre | Desktop: mosaico 3-col sin cambios */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div className="aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda2.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Boda Estilo Alternativo" />
+                {/* boda2 — móvil: cuadrado | desktop: vertical 4/5 col-1 row-1 */}
+                <div className="aspect-square md:aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-2xl">
+                  <img src="img/boda2.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Boda Estilo Alternativo" />
                 </div>
+                {/* boda1 — móvil: cuadrado | desktop: col-2 spans 2 rows (hero central) */}
                 <div className="aspect-square md:aspect-auto md:row-span-2 overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda1.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Mesa Boda" />
+                  <img src="img/boda1.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Mesa Boda" />
                 </div>
+                {/* boda3 — cuadrado en ambos */}
                 <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda3.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Regalo Invitados Boda" />
+                  <img src="img/boda3.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Regalo Invitados Boda" />
                 </div>
+                {/* boda4 — cuadrado en ambos; desktop: ancla en col-1 row-2 */}
                 <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl md:col-start-1">
-                  <img src="img/boda4.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Flores Resina" />
+                  <img src="img/boda4.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Flores Resina" />
                 </div>
-                <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda5.png" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Textura Resina Bodas" />
+                {/* boda5 — móvil: panorámica ancho completo (2/1) | desktop: cuadrado col-3 row-2 */}
+                <div className="col-span-2 aspect-[2/1] md:col-span-1 md:aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl">
+                  <img src="img/boda5.png" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Textura Resina Bodas" />
                 </div>
               </div>
             </div>
