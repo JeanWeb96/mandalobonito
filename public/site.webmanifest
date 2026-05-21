@@ -1,0 +1,17 @@
+{
+  "name": "Mándalo Bonito",
+  "short_name": "Mándalo Bonito",
+  "description": "Arte en resina hecho a mano. Piezas únicas personalizadas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF5",
+  "theme_color": "#C59D5F",
+  "icons": [
+    {
+      "src": "/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
