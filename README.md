@@ -2,87 +2,173 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# 🌟 Mándalo Bonito — E-Commerce Artesanal de Resina Premium
+# Mándalo Bonito — E-Commerce Artesanal de Resina
 
-¡Bienvenido a **Mándalo Bonito**! Esta plataforma web ha sido diseñada y construida a medida para digitalizar y elevar un taller artesanal enfocado en la creación de piezas únicas y personalizadas de resina epoxi de alta calidad. 
+Plataforma web completa construida a medida para un taller artesanal de piezas únicas en resina epoxi. Incluye tienda pública, panel de administración con autenticación y backend en Supabase.
 
-A continuación se detalla una explicación profunda del sitio web a nivel **usuario (UX/UI)** y a nivel **técnico (arquitectura y desarrollo)**, justificando por qué ha sido concebido de esta manera y cómo es su funcionamiento interno.
-
----
-
-## 👥 1. Perspectiva del Usuario (User Level)
-
-### ¿Por qué se creó Mándalo Bonito?
-El mercado de la artesanía en resina exige una experiencia de compra sumamente visual y personalizada. Cada pieza es una obra de arte única y no hay dos iguales. Por ello, Mándalo Bonito no fue diseñado como una tienda de comercio electrónico genérica y fría. Se creó para transmitir **exclusividad, calidez, detalle y cercanía**, permitiendo a los clientes apreciar la belleza del producto antes de adquirirlo y posibilitando una comunicación fluida para encargos personalizados.
-
-### Funcionamiento y Experiencia de Usuario (UX)
-
-*   **Catálogo Dinámico e Interactivo ([ShopPage.tsx])**: Los usuarios pueden explorar el catálogo completo filtrando dinámicamente por categorías refinadas (como *Decoración*, *Juegos*, *Posavasos*, *Llaveros*, *Complementos*, y *Días Especiales*).
-*   **Fichas de Detalle Sensoriales ([ProductDetailPage.tsx])**: Al hacer clic en un producto, el usuario accede a una experiencia detallada. Puede visualizar múltiples imágenes reales a través de una galería interactiva, leer descripciones emocionales y técnicas sobre el acabado en resina y ver las variantes de tamaño o sets disponibles.
-*   **Personalización y Contacto Directo**: Como el valor añadido de Mándalo Bonito es la creación a medida (colores, brillos, flores prensadas, nombres encapsulados), el sistema integra llamadas directas a **WhatsApp** y formularios de contacto en [ContactPage.tsx] para que el cliente finalice la personalización con el artesano de forma inmediata.
-*   **Sección de Formación y Comunidad [EventsPage.tsx] y [WorkshopsPage.tsx]**: La web no solo vende, sino que educa. Integra secciones para reservar talleres presenciales de vertido de resina y un espacio dedicado a la venta de cursos online ([OnlineCoursePage.tsx]) para entusiastas del sector.
-*   **Aparato Legal Transparente**: Se incluye todo lo necesario para cumplir con las normativas vigentes del RGPD, aviso legal, términos de reembolso y preguntas frecuentes ([FaqPage.tsx]) para infundir total confianza al comprador.
+🔗 **[Ver demo en vivo](https://mandalobonito.vercel.app)**
 
 ---
 
-## 🛠️ 2. Perspectiva Técnica (Technical Level)
+## Stack Tecnológico
 
-La arquitectura de la web fue construida utilizando tecnologías frontend de última generación para garantizar **máxima velocidad de carga, interactividad fluida y facilidad de mantenimiento**.
+| Capa | Tecnología |
+|------|-----------|
+| Frontend | React 19 + TypeScript 5.8 |
+| Bundler | Vite 6 + `@tailwindcss/vite` |
+| Estilos | Tailwind CSS v4 (configuración vía `@theme`) |
+| Routing | React Router v7 (HashRouter) |
+| Estado servidor | TanStack Query v5 |
+| Base de datos | Supabase (PostgreSQL + RLS) |
+| Autenticación | Supabase Auth |
+| Almacenamiento | Supabase Storage (imágenes de productos) |
+| Formularios | React Hook Form + Zod v4 |
+| Drag & Drop | @dnd-kit (reordenación de productos) |
+| Despliegue | Vercel (con headers de seguridad) |
+| Analíticas | Vercel Analytics (gated por consentimiento RGPD) |
 
-```mermaid
-graph TD
-    A[App.tsx - Root] --> B[CookieBannerProvider]
-    A --> C[Vercel Analytics]
-    A --> D[HashRouter]
-    D --> E[Header]
-    D --> F[Pages / Routes]
-    D --> G[Footer]
-    D --> H[WhatsAppButton]
-    
-    F --> F1[HomePage]
-    F --> F2[ShopPage]
-    F --> F3[ProductDetailPage]
-    F --> F4[EventsPage & Workshops]
-    F --> F5[Contact & Support Pages]
-    
-    F2 -.-> I[constants.ts - Base de Datos Estática de Productos]
-    F3 -.-> I
-    
-    J[Futuro Panel / Config] -.-> K[Sincronización con Supabase]
+---
+
+## Arquitectura
+
+```
+┌─────────────────────────────────────────────────────┐
+│                    CLIENTE (Browser)                 │
+│                                                     │
+│  ┌─────────────┐    ┌──────────────────────────┐   │
+│  │  Tienda     │    │   Panel de Administración │   │
+│  │  Pública    │    │   /admin (AuthGuard)      │   │
+│  │             │    │                          │   │
+│  │ @supabase/  │    │  @supabase/supabase-js   │   │
+│  │ postgrest-js│    │  (auth + db + storage)   │   │
+│  └──────┬──────┘    └────────────┬─────────────┘   │
+└─────────┼──────────────────────  ┼─────────────────┘
+          │                        │
+          ▼                        ▼
+┌─────────────────────────────────────────────────────┐
+│                    SUPABASE                         │
+│  PostgreSQL · Auth · Storage · Row Level Security   │
+└─────────────────────────────────────────────────────┘
 ```
 
-### Arquitectura de Software y Decisiones Clave
+### Separación de clientes Supabase
 
-1.  **Vite + React (TypeScript) como Núcleo**:
-    *   **¿Por qué Vite?**: Ofrece una compilación y recarga en caliente (HMR) casi instantánea, ideal para un ciclo de desarrollo ágil.
-    *   **¿Por qué TypeScript?**: Provee tipado estricto para las entidades principales del sistema (por ejemplo, la definición estricta del tipo `Product` en [types.ts]), evitando errores comunes durante la compilación y asegurando que las variantes de precios y fotos siempre estén estructuradas correctamente.
-2.  **Tailwind CSS v4 (Motor de Estilos de Nueva Generación)**:
-    *   Integrado en [index.css] con el nuevo estándar `@theme`.
-    *   Permite un control granular del diseño responsivo mediante utilidades altamente optimizadas.
-    *   Define una identidad visual de marca unificada a través de variables personalizadas (colores como `brand-cream`, `brand-silk`, `brand-brown` y `brand-gold`, y tipografías premium como *Montserrat* para lectura cómoda y *Playfair Display* para títulos elegantes de lujo).
-3.  **React Router (HashRouter)**:
-    *   **¿Por qué HashRouter?**: Se ha utilizado `HashRouter` en lugar de `BrowserRouter`. En plataformas de alojamiento estático tradicionales (como GitHub Pages o ciertos servidores Apache), las rutas dinámicas como `/catalogo/ajedrez` devuelven errores HTTP 404 al recargar la página. Al usar rutas basadas en hash (`/#/catalogo/ajedrez`), la navegación se maneja enteramente en el lado del cliente, garantizando que **la web nunca falle ni se rompa al actualizar el navegador**.
-4.  **Resin Gloss Effect & Sharpness Filter (Micro-animaciones Estéticas)**:
-    *   En [index.css], se ha implementado un filtro CSS personalizado llamado `.resin-filter`. 
-    *   Este filtro optimiza el contraste y la saturación de las imágenes de los productos artesanales y, mediante un pseudoelemento `::after` con un gradiente lineal y una transformación `skewX`, genera un **destello de luz brillante reflectante** que cruza el producto al pasar el ratón por encima (hover), imitando de forma interactiva el acabado brillante de la resina epoxi pulida.
-    *   Se ha establecido una transición global (`* { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }`) para asegurar que todos los cambios de estado sean suaves y fluidos.
-5.  **Preparado para Base de Datos Dinámica (Futuro Supabase)**:
-    *   La arquitectura actual carga los productos desde el archivo estático [constants.ts] para maximizar la velocidad de carga inicial y asegurar el soporte sin conexión. No obstante, el sistema está completamente preparado para migrar a una base de datos relacional y almacenamiento de imágenes en la nube (como **Supabase**). Esto posibilitará que el cliente final disponga en el futuro de una interfaz de edición intuitiva y arrastrable (tipo hoja de cálculo o panel de administración) para añadir, editar o quitar productos, talleres e imágenes en tiempo real de forma autónoma.
-6.  **Cookies & Analíticas de Rendimiento Silenciosas**:
-    *   Integra un `CookieBannerProvider` modular que bloquea cualquier script de rastreo hasta que el usuario dé su consentimiento expreso de acuerdo con las normativas europeas RGPD.
-    *   Usa el script ultraligero `@vercel/analytics` para recopilar métricas de rendimiento del sitio de manera no intrusiva y respetuosa con la privacidad.
+La tienda pública usa `@supabase/postgrest-js` directamente (solo queries de lectura, ~5 KB gzip) mientras que el panel de admin usa el cliente completo `@supabase/supabase-js` (auth + storage), cargado únicamente cuando se navega a `/admin`. Esto elimina ~47 KB del bundle inicial para visitantes públicos.
 
 ---
 
-## 📂 3. Estructura de Directorios Clave
+## Estructura de Directorios
 
-Para mantener el proyecto limpio y optimizado, la estructura de carpetas se organiza así:
+```
+mandalobonito/
+├── admin/                    # Panel de administración (lazy-loaded)
+│   ├── components/
+│   │   ├── AuthGuard.tsx     # Protección de rutas admin
+│   │   └── ProductForm.tsx   # Formulario con Zod + RHF
+│   ├── lib/
+│   │   ├── supabase.ts       # Cliente Supabase con tipo Database<>
+│   │   ├── queries.ts        # Mutaciones CRUD (TanStack Query)
+│   │   └── schemas.ts        # Validación con Zod
+│   ├── AdminProtected.tsx    # Wrapper lazy (AuthGuard + Dashboard)
+│   ├── DashboardPage.tsx     # UI admin con DnD y filtros
+│   └── LoginPage.tsx         # Login con rate-limiting progresivo
+├── components/               # Componentes UI reutilizables
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   ├── ProductCard.tsx       # React.memo + lazy image
+│   ├── CookieBanner.tsx      # RGPD + Context Provider
+│   └── WhatsAppButton.tsx
+├── lib/
+│   ├── postgrest.ts          # Cliente ligero (solo lectura pública)
+│   └── publicQueries.ts      # Hooks + transformación de imágenes Supabase
+├── pages/                    # Rutas públicas (React.lazy + Suspense)
+│   ├── HomePage.tsx
+│   ├── ShopPage.tsx
+│   ├── ProductDetailPage.tsx
+│   ├── EventsPage.tsx
+│   ├── WorkshopsPage.tsx
+│   └── ...
+├── public/img/               # Assets estáticos (logo, imágenes de eventos)
+├── App.tsx                   # Router + QueryClient + 13 rutas lazy
+├── index.html                # Preload LCP, preconnects, CSP-adjacent headers
+├── vite.config.ts            # Code splitting manual por vendor
+└── vercel.json               # Security headers (X-Frame, Referrer, etc.)
+```
 
-*   **`src/`**: Contiene la lógica del frontend.
-    *   **`pages/`**: Vistas completas de la aplicación web (Inicio, Tienda, Detalle, Talleres, Políticas, etc.).
-    *   **`components/`**: Fragmentos de interfaz reutilizables (Encabezado, Pie de página, Botón de WhatsApp, Banner de Cookies).
-*   **`public/`**: Es la carpeta fuente obligatoria para recursos estáticos que deben servirse intactos.
-    *   **`public/img/`**: **Aquí residen las 98 imágenes reales del proyecto** (logotipo, productos, fotos de talleres). Al compilar con Vite, todo este contenido se clona automáticamente a la carpeta de distribución final.
-    *   > [!IMPORTANT]
-        > Se ha eliminado la carpeta `img` duplicada en la raíz del proyecto para evitar redundancias y consumo de espacio en el disco duro, centralizando todo el catálogo gráfico exclusivamente dentro de `public/img/`.
-*   **`dist/`**: Carpeta autogenerada con el empaquetado final optimizado (HTML, JS y CSS minificados) listo para producción. Se puede borrar en cualquier momento y se volverá a crear ejecutando `npm run build`.
+---
+
+## Características Principales
+
+### Tienda Pública
+- **Catálogo dinámico** con filtrado por categorías y búsqueda en tiempo real
+- **Galería de imágenes** con thumbnails y cambio de imagen principal
+- **Lazy loading** de todas las imágenes con `loading="lazy"` + `decoding="async"`
+- **Optimización de imágenes Supabase**: URLs de Storage reescritas automáticamente a WebP + resize server-side
+- **ScrollReveal** con `IntersectionObserver` para animaciones de entrada
+- **WhatsApp deeplink** para consultas de personalización
+
+### Panel de Administración
+- **Autenticación** via Supabase Auth con verificación doble (sesión + tabla `admin_users`)
+- **CRUD completo** de productos con formulario validado (Zod + React Hook Form)
+- **Soporte multi-categoría** via tabla de unión `product_categories`
+- **Drag & Drop** de productos con `@dnd-kit` para reordenar (`display_order`)
+- **Subida de imágenes** a Supabase Storage con preview
+- **Rate limiting progresivo** en login: 3 intentos → 30s, 5 intentos → 5min
+
+### Rendimiento (Lighthouse)
+- Code splitting en 20+ chunks paralelos (vendors, pages, admin separado)
+- `react-vendor`, `router`, `query` separados y cacheados individualmente
+- Admin JS (~300 KB) nunca se descarga para visitantes públicos
+- `modulePreload: { polyfill: false }` — target ES2022
+- Fonts no bloqueantes con `media="print" onload` + `display=optional`
+- Preload del LCP (logo) desde `<head>` del HTML
+
+---
+
+## Variables de Entorno
+
+Crea un archivo `.env.local` en la raíz:
+
+```env
+VITE_SUPABASE_URL=https://tu-proyecto.supabase.co
+VITE_SUPABASE_ANON_KEY=tu_anon_key
+```
+
+> El archivo `.env.local` está excluido por `.gitignore` y nunca se commitea.  
+> La `ANON_KEY` es pública por diseño de Supabase — la seguridad real la gestiona Row Level Security en PostgreSQL.
+
+---
+
+## Instalación y Desarrollo
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # Genera dist/ optimizado
+npm run preview  # Preview del build de producción
+```
+
+---
+
+## Base de Datos (Supabase)
+
+```sql
+-- Tablas principales
+products          -- Catálogo con variantes JSON, galería, display_order
+categories        -- Categorías con slug y display_order
+product_categories -- Tabla de unión M:N (multi-categoría por producto)
+admin_users       -- Control de acceso al panel (verificación doble)
+```
+
+Row Level Security habilitado en todas las tablas. Los queries públicos usan la anon key con RLS restrictivo; los queries de admin requieren sesión autenticada.
+
+---
+
+## Seguridad
+
+- Sin secretos hardcodeados — todo via `import.meta.env.VITE_*`
+- Sin `console.log` en producción (eliminados por esbuild `drop: ['console']`)
+- Sin sourcemaps en producción (`sourcemap: false`)
+- Headers HTTP en `vercel.json`: `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`
+- Cache inmutable para assets con hash: `Cache-Control: public, max-age=31536000, immutable`
+- Analíticas condicionadas al consentimiento de cookies (RGPD)
