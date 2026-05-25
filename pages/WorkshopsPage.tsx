@@ -141,7 +141,7 @@ export default function WorkshopsPage() {
           </div>
           <div className="col-span-2 row-span-1 overflow-hidden rounded-[2.5rem] shadow-lg group">
             <img
-              src="img/taller3.webp"
+              src="img/taller8.webp"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               alt="Grupo trabajando"
             />
