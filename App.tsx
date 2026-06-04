@@ -19,6 +19,7 @@ const RefundPolicyPage  = lazy(() => import('./pages/RefundPolicyPage'));
 const FaqPage           = lazy(() => import('./pages/FaqPage'));
 const LegalNoticePage   = lazy(() => import('./pages/LegalNoticePage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const CookiePolicyPage  = lazy(() => import('./pages/CookiePolicyPage'));
 
 // ── Admin: chunk separado, nunca descargado por visitantes ────
 // AdminProtected envuelve AuthGuard + DashboardPage en un solo dynamic import,
@@ -80,6 +81,7 @@ function PublicLayout() {
             <Route path="/faq"                 element={<FaqPage />} />
             <Route path="/aviso-legal"         element={<LegalNoticePage />} />
             <Route path="/politica-privacidad" element={<PrivacyPolicyPage />} />
+            <Route path="/politica-de-cookies" element={<CookiePolicyPage />} />
           </Routes>
         </Suspense>
       </main>
@@ -93,9 +95,9 @@ function PublicLayout() {
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <CookieBannerProvider>
-        <ConditionalAnalytics />
-        <HashRouter>
+      <HashRouter>
+        <CookieBannerProvider>
+          <ConditionalAnalytics />
           <ScrollToTop />
           <Suspense fallback={<PageSpinner />}>
             <Routes>
@@ -105,8 +107,8 @@ export default function App() {
               <Route path="/*"               element={<PublicLayout />} />
             </Routes>
           </Suspense>
-        </HashRouter>
-      </CookieBannerProvider>
+        </CookieBannerProvider>
+      </HashRouter>
     </QueryClientProvider>
   );
 }

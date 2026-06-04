@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
+import { Link } from "react-router-dom";
 
 // ----------------------------------------------------------------------
 // TIPOS Y CONTEXTO
@@ -103,9 +104,9 @@ export const CookieBannerProvider: React.FC<{ children: React.ReactNode }> = ({ 
               </h2>
               <p className="text-sm text-brand-gray">
                 Utilizamos cookies propias y de terceros para asegurar el correcto funcionamiento del sitio, personalizar su experiencia y analizar nuestro tráfico. Puede aceptar todas, rechazarlas o configurar sus preferencias.{" "}
-                <a href="/politica-de-cookies" className="underline font-medium text-brand-gold hover:opacity-80 transition-opacity" aria-label="Leer más sobre la política de cookies">
+                <Link to="/politica-de-cookies" className="underline font-medium text-brand-gold hover:opacity-80 transition-opacity" aria-label="Leer más sobre la política de cookies">
                   Saber más
-                </a>.
+                </Link>.
               </p>
             </div>
 
