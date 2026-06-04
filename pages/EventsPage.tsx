@@ -363,7 +363,7 @@ export default function EventsPage() {
                 </div>
                 {/* boda5 — móvil: panorámica ancho completo (2/1) | desktop: cuadrado col-3 row-2 */}
                 <div className="col-span-2 aspect-[2/1] md:col-span-1 md:aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda5.png" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Textura Resina Bodas" />
+                  <img src="img/boda5.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Textura Resina Bodas" />
                 </div>
               </div>
             </div>
