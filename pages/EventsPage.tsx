@@ -113,10 +113,10 @@ export default function EventsPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 text-center px-4">
         <div className="container mx-auto max-w-4xl">
-          <span className="font-sans uppercase tracking-[0.5em] text-xs text-brand-gold mb-6 block font-bold">Artesanía que celebra la vida</span>
-          <h1 className="font-display text-5xl md:text-7xl text-brand-brown mb-8 leading-tight italic">Detalles que cuentan historias</h1>
+          <span className="font-sans uppercase tracking-[0.5em] text-xs text-brand-gold mb-6 block font-bold">Resina Artesanal · Santa Coloma de Gramenet, Barcelona</span>
+          <h1 className="font-display text-5xl md:text-7xl text-brand-brown mb-8 leading-tight italic">Detalles en Resina para Bodas y Bautizos</h1>
           <p className="text-xl text-brand-gray font-light leading-relaxed max-w-2xl mx-auto">
-            "No diseñamos objetos, encapsulamos la esencia de tus días más importantes para que nunca dejen de brillar."
+            Creamos recuerdos y detalles artesanales en resina epoxi para bodas, bautizos y todo tipo de celebraciones. Piezas únicas, personalizadas y hechas a mano en Barcelona.
           </p>
         </div>
       </section>
@@ -131,7 +131,7 @@ export default function EventsPage() {
                 <span className="text-brand-gold font-sans uppercase tracking-[0.3em] text-sm font-bold">Nuevas Vidas</span>
                 <h2 className="font-display text-4xl md:text-5xl leading-tight">Recuerdos de Bautizo Artesanales: <br/><span className="text-brand-gold italic">Detalles que Emocionan</span></h2>
                 <p className="text-lg font-light leading-relaxed text-brand-gray">
-                  Celebra un momento único con piezas hechas a mano, diseñadas para convertir el bautizo de tu peque en un recuerdo que perdure para siempre. Te ofrecemos una exclusiva variedad de detalles en resina, elaborados con mimo y dedicación en España, ideales para agradecer a tus invitados su compañía en un día tan especial.
+                  Celebra un momento único con piezas hechas a mano en nuestro taller de Santa Coloma de Gramenet, Barcelona. Detalles en resina epoxi elaborados con mimo y dedicación, ideales para agradecer a tus invitados su compañía en el bautizo de tu peque. Personalizamos nombres, fechas y colores.
                 </p>
               </div>
 
@@ -218,16 +218,16 @@ export default function EventsPage() {
               {/* Galería Mosaico Bautizos */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[500px]">
                 <div className="col-span-2 row-span-2 overflow-hidden rounded-[2.5rem]">
-                  <img src="img/bautismo5.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Bautizo Principal" />
+                  <img src="img/bautismo5.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalles de bautizo en resina epoxi personalizados" />
                 </div>
                 <div className="overflow-hidden rounded-2xl">
-                  <img src="img/bautismo7.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Llavero" />
+                  <img src="img/bautismo7.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Llavero de resina personalizado para bautizo" />
                 </div>
                 <div className="overflow-hidden rounded-2xl">
-                  <img src="img/bautismo8.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Portafotos" />
+                  <img src="img/bautismo8.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Portafotos corazón de resina para bautizo" />
                 </div>
                 <div className="col-span-2 overflow-hidden rounded-[2.5rem]">
-                  <img src="img/bautismo3.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Bautizo Atmosfera" />
+                  <img src="img/bautismo3.webp" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Recuerdos artesanales de bautizo en resina epoxi Barcelona" />
                 </div>
               </div>
             </div>
@@ -263,7 +263,7 @@ export default function EventsPage() {
                 <span className="text-brand-gold font-sans uppercase tracking-[0.3em] text-sm font-bold">Identidad Única</span>
                 <h2 className="font-display text-4xl md:text-5xl leading-tight text-brand-cream">Recuerdos de Boda Artesanales: <br/><span className="text-brand-gold italic">La Esencia de Vuestro "Sí Quiero"</span></h2>
                 <p className="text-lg font-light leading-relaxed text-brand-cream/80">
-                  Vuestra unión es un momento irrepetible, y los detalles para vuestros invitados deben estar a la altura de vuestra historia. Creamos piezas únicas en resina, elaboradas artesanalmente en España, que fusionan elegancia, modernidad y sentimiento para que vuestro gran día sea recordado por siempre.
+                  Vuestra unión es un momento irrepetible, y los detalles para vuestros invitados deben estar a la altura de vuestra historia. Creamos recuerdos de boda únicos en resina epoxi, elaborados artesanalmente en Barcelona, que fusionan elegancia y sentimiento para que vuestro gran día sea recordado para siempre.
                 </p>
               </div>
 
@@ -352,23 +352,23 @@ export default function EventsPage() {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {/* boda2 — móvil: cuadrado | desktop: vertical 4/5 col-1 row-1 */}
                 <div className="aspect-square md:aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda2.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Boda Estilo Alternativo" />
+                  <img src="img/boda2.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalles de boda en resina epoxi estilo alternativo" />
                 </div>
                 {/* boda1 — móvil: cuadrado | desktop: col-2 spans 2 rows (hero central) */}
                 <div className="aspect-square md:aspect-auto md:row-span-2 overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda1.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Mesa Boda" />
+                  <img src="img/boda1.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Recuerdo de boda artesanal en resina personalizado" />
                 </div>
                 {/* boda3 — cuadrado en ambos */}
                 <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda3.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Regalo Invitados Boda" />
+                  <img src="img/boda3.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Regalos para invitados de boda en resina epoxi" />
                 </div>
                 {/* boda4 — cuadrado en ambos; desktop: ancla en col-1 row-2 */}
                 <div className="aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl md:col-start-1">
-                  <img src="img/boda4.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Detalle Flores Resina" />
+                  <img src="img/boda4.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Flores encapsuladas en resina para boda Barcelona" />
                 </div>
                 {/* boda5 — móvil: panorámica ancho completo (2/1) | desktop: cuadrado col-3 row-2 */}
                 <div className="col-span-2 aspect-[2/1] md:col-span-1 md:aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl">
-                  <img src="img/boda5.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Textura Resina Bodas" />
+                  <img src="img/boda5.webp" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" alt="Textura y acabados de resina epoxi para bodas" />
                 </div>
               </div>
             </div>

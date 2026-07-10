@@ -18,7 +18,7 @@ const workshops: Workshop[] = [
     id: 'epoxi',
     title: 'Talleres formativos de resina epoxi',
     category: 'Formación Técnica',
-    description: 'Son experiencias creativas donde aprendes a trabajar esta técnica desde cero, de forma práctica y guiada. Descubres cómo mezclar, colorear y aplicar la resina para crear piezas únicas en un ambiente relajado. No necesitas experiencia previa: te acompañamos paso a paso.',
+    description: 'Aprende a trabajar la resina epoxi desde cero en nuestro taller de Santa Coloma de Gramenet. De forma práctica y guiada, descubrirás cómo mezclar, colorear y aplicar la resina para crear piezas únicas. No necesitas experiencia previa: te acompañamos paso a paso.',
     image: 'img/taller3.webp',
     priceInfo: '60€/pers.',
     duration: '1 Hora - 3 Días'
@@ -51,10 +51,10 @@ export default function WorkshopsPage() {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="max-w-4xl mx-auto text-center mb-20">
-        <span className="text-brand-gold font-sans uppercase tracking-[0.4em] text-xs font-bold mb-4 block">Aprende y Disfruta</span>
-        <h1 className="font-display text-6xl text-brand-brown mb-6 leading-tight">Nuestros Talleres</h1>
+        <span className="text-brand-gold font-sans uppercase tracking-[0.4em] text-xs font-bold mb-4 block">Santa Coloma de Gramenet · Barcelona</span>
+        <h1 className="font-display text-6xl text-brand-brown mb-6 leading-tight">Talleres de Resina en Barcelona</h1>
         <p className="text-xl text-brand-gray leading-relaxed font-light italic">
-          Sumérgete en el mundo de la creación artesanal. Descubre el placer de crear con tus manos en un entorno acogedor y profesional.
+          Sumérgete en el mundo de la resina epoxi y acrílica en nuestro taller de Santa Coloma de Gramenet. Aprende a crear piezas únicas en un entorno acogedor y profesional, sin experiencia previa necesaria.
         </p>
       </div>
 
@@ -64,7 +64,7 @@ export default function WorkshopsPage() {
             <div className="h-80 overflow-hidden relative">
               <img
                 src={workshop.image}
-                alt={workshop.title}
+                alt={`${workshop.title} en Santa Coloma de Gramenet, Barcelona`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute top-6 left-6 bg-brand-gold/90 backdrop-blur text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">
@@ -106,49 +106,49 @@ export default function WorkshopsPage() {
             <img
               src="img/taller1.webp"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              alt="Ambiente de taller"
+              alt="Taller de resina epoxi en Santa Coloma de Gramenet"
             />
           </div>
           <div className="col-span-1 row-span-1 overflow-hidden rounded-3xl shadow-lg group">
             <img
               src="img/taller2.webp"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              alt="Detalle de resina"
+              alt="Detalle de pieza en resina epoxi"
             />
           </div>
           <div className="col-span-1 row-span-2 overflow-hidden rounded-[2.5rem] shadow-lg group">
             <img
               src="img/taller6.webp"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              alt="Proceso creativo"
+              alt="Proceso creativo en taller de resina Barcelona"
             />
           </div>
           <div className="col-span-1 row-span-1 overflow-hidden rounded-3xl shadow-lg group">
             <img
               src="img/taller4.webp"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              alt="Resultado final"
+              alt="Pieza de resina epoxi terminada"
             />
           </div>
           <div className="col-span-2 row-span-2 overflow-hidden rounded-[2.5rem] shadow-lg group">
             <img
               src="img/taller7.webp"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              alt="Momento especial en el taller"
+              alt="Participantes en taller de resina Mándalo Bonito"
             />
           </div>
           <div className="col-span-2 row-span-1 overflow-hidden rounded-[2.5rem] shadow-lg group">
             <img
               src="img/taller5.webp"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              alt="Grupo trabajando"
+              alt="Grupo en taller de resina acrílica Barcelona"
             />
           </div>
           <div className="col-span-2 row-span-1 overflow-hidden rounded-[2.5rem] shadow-lg group">
             <img
               src="img/taller8.webp"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              alt="Grupo trabajando"
+              alt="Actividad grupal de resina con pica-pica en Barcelona"
             />
           </div>
         </div>
@@ -185,9 +185,9 @@ export default function WorkshopsPage() {
 
       <div className="mt-24 bg-brand-brown text-white p-12 lg:p-20 rounded-[4rem] text-center max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl"></div>
-        <h2 className="font-display text-4xl lg:text-5xl mb-8 relative z-10">¿Buscas una experiencia para tu grupo?</h2>
+        <h2 className="font-display text-4xl lg:text-5xl mb-8 relative z-10">¿Buscas un taller de resina para tu grupo en Barcelona?</h2>
         <p className="text-xl text-brand-cream/70 mb-12 font-light max-w-2xl mx-auto relative z-10 italic">
-          Organizamos talleres privados para cumpleaños, despedidas o team building. Nos adaptamos a vuestras ideas para crear un momento inolvidable. A partir de 20€/pers. 1:30 Horas.
+          Organizamos talleres privados de resina en Santa Coloma de Gramenet para cumpleaños, despedidas, team building o cualquier celebración. Nos adaptamos a vuestras ideas. A partir de 20€/pers. 1:30 Horas.
         </p>
         <button
           onClick={() => handleInterest("Taller Grupal / Evento")}
