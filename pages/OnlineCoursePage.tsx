@@ -1,8 +1,13 @@
 
 import React from 'react';
+import { useSEO } from '../lib/useSEO';
 import { useNavigate } from 'react-router-dom';
 
 export default function OnlineCoursePage() {
+  useSEO({
+    title: 'Curso Online de Resina Epoxi | Mándalo Bonito',
+    description: 'Aprende a trabajar la resina epoxi desde casa con nuestro curso online, de principiante a avanzado. Técnicas, materiales y proyectos paso a paso.',
+  });
   const navigate = useNavigate();
 
   return (

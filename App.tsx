@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Header         from './components/Header';
 import Footer         from './components/Footer';
@@ -95,7 +95,7 @@ function PublicLayout() {
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <HashRouter>
+      <BrowserRouter>
         <CookieBannerProvider>
           <ConditionalAnalytics />
           <ScrollToTop />
@@ -108,7 +108,7 @@ export default function App() {
             </Routes>
           </Suspense>
         </CookieBannerProvider>
-      </HashRouter>
+      </BrowserRouter>
     </QueryClientProvider>
   );
 }

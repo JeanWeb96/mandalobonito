@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useSEO } from '../lib/useSEO';
 
 interface BudgetFormProps {
   sectionTitle: string;
@@ -103,6 +104,10 @@ const BudgetForm: React.FC<BudgetFormProps> = ({ sectionTitle, placeholderTheme,
 };
 
 export default function EventsPage() {
+  useSEO({
+    title: 'Detalles para Bodas y Bautizos en Resina | Mándalo Bonito',
+    description: 'Recuerdos y detalles artesanales en resina para bodas, bautizos y comuniones. Personalizamos cada pieza para que tu celebración sea única e inolvidable.',
+  });
   return (
     <div className="pb-20 bg-brand-cream/20">
       {/* Hero Section */}

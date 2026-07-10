@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useSEO } from '../lib/useSEO';
 import { useParams, useNavigate } from 'react-router-dom';
 import { usePublicProduct } from '../lib/publicQueries';
 import { WhatsAppIcon } from '../components/icons/SocialIcons';
@@ -15,6 +16,11 @@ export default function ProductDetailPage() {
   const [mainImage,         setMainImage]         = useState('');
   const [selectedVariant,   setSelectedVariant]   = useState<ProductVariant | null>(null);
   const [customizationText, setCustomizationText] = useState('');
+
+  useSEO({
+    title: product ? `${product.name} | Mándalo Bonito` : 'Producto | Mándalo Bonito',
+    description: product?.short_description ?? 'Pieza artesanal única en resina epoxi, personalizable. Descubre todos los detalles en Mándalo Bonito.',
+  });
 
   // Inicializa imagen y variante cuando el producto carga
   useEffect(() => {

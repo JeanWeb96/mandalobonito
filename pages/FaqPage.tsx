@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSEO } from '../lib/useSEO';
 
 interface FaqItemProps {
   question: string;
@@ -34,6 +35,10 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, children }) => {
 
 
 export default function FaqPage() {
+  useSEO({
+    title: 'Preguntas Frecuentes | Mándalo Bonito',
+    description: 'Resuelve tus dudas sobre pedidos, materiales, plazos de entrega y personalización de piezas artesanales en resina epoxi.',
+  });
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="font-display text-5xl text-center mb-12 text-brand-brown">Preguntas Frecuentes</h1>

@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import { useSEO } from '../lib/useSEO';
 import { Link } from 'react-router-dom';
 import { LOGO_URL } from '../constants';
 import ProductCard from '../components/ProductCard';
@@ -38,6 +39,10 @@ const ScrollReveal: React.FC<{ children: React.ReactNode; delay?: number }> = ({
 };
 
 export default function HomePage() {
+  useSEO({
+    title: 'Mándalo Bonito | Artesanía en Resina Epoxi · Barcelona',
+    description: 'Piezas únicas en resina epoxi hechas a mano: joyas, decoración, lámparas y regalos personalizados. Taller artesanal en Santa Coloma de Gramenet, Barcelona.',
+  });
   const { data: allProducts = [], isLoading } = usePublicProducts();
   const featuredProducts = allProducts.slice(0, 4);
 

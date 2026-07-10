@@ -1,8 +1,13 @@
 
 import React from 'react';
+import { useSEO } from '../lib/useSEO';
 import { LOGO_URL } from '../constants';
 
 export default function AboutPage() {
+  useSEO({
+    title: 'Quiénes Somos | Mándalo Bonito',
+    description: 'Conoce el taller artesanal de Mándalo Bonito. Creamos piezas únicas en resina epoxi con pasión y dedicación en Santa Coloma de Gramenet, Barcelona.',
+  });
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-4xl mx-auto text-center">

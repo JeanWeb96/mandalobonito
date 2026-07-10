@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useSEO } from '../lib/useSEO';
 import { WhatsAppIcon } from '../components/icons/SocialIcons';
 
 interface Workshop {
@@ -34,6 +35,10 @@ const workshops: Workshop[] = [
 ];
 
 export default function WorkshopsPage() {
+  useSEO({
+    title: 'Talleres de Resina Epoxi en Barcelona | Mándalo Bonito',
+    description: 'Talleres de resina epoxi y acrílica en Barcelona. Aprende la técnica desde cero o disfruta de una actividad grupal con pica-pica incluida. Sin experiencia previa.',
+  });
   const handleInterest = (workshopTitle: string) => {
     const phoneNumber = "657340187";
     const message = `¡Hola! 👋 Me interesa obtener más información sobre el taller: ${workshopTitle}.`;

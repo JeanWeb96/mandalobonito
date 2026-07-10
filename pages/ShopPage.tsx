@@ -1,10 +1,15 @@
 
 import React, { useState, useMemo } from 'react';
+import { useSEO } from '../lib/useSEO';
 import { useNavigate } from 'react-router-dom';
 import { usePublicProducts, usePublicCategories } from '../lib/publicQueries';
 import ProductCard from '../components/ProductCard';
 
 export default function ShopPage() {
+  useSEO({
+    title: 'Catálogo de Resina Artesanal | Mándalo Bonito',
+    description: 'Descubre nuestra colección de piezas en resina epoxi: llaveros, posavasos, relojes, joyería y decoración. Personalización disponible.',
+  });
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
