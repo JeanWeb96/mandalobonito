@@ -1,8 +1,14 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSEO } from '../lib/useSEO';
 
 export default function PrivacyPolicyPage() {
+  useSEO({
+    title: 'Política de Privacidad | Mándalo Bonito',
+    description: 'Política de privacidad de Mándalo Bonito: cómo tratamos y protegemos tus datos personales.',
+    noindex: true,
+  });
   const navigate = useNavigate();
 
   return (

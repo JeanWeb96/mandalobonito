@@ -1,6 +1,12 @@
 import React from 'react';
+import { useSEO } from '../lib/useSEO';
 
 export default function RefundPolicyPage() {
+  useSEO({
+    title: 'Política de Reembolso | Mándalo Bonito',
+    description: 'Política de devoluciones y reembolsos de Mándalo Bonito: plazos, condiciones y proceso de devolución.',
+    noindex: true,
+  });
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto prose prose-lg text-brand-brown">

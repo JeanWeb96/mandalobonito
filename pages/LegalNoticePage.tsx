@@ -1,8 +1,14 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSEO } from '../lib/useSEO';
 
 export default function LegalNoticePage() {
+  useSEO({
+    title: 'Aviso Legal | Mándalo Bonito',
+    description: 'Aviso legal de Mándalo Bonito: información sobre el titular del sitio web, condiciones de uso y propiedad intelectual.',
+    noindex: true,
+  });
   const navigate = useNavigate();
 
   return (

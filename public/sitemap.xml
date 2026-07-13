@@ -43,28 +43,4 @@
     <priority>0.6</priority>
   </url>
 
-  <url>
-    <loc>https://mandalobonito.es/politica-reembolso</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://mandalobonito.es/politica-privacidad</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://mandalobonito.es/politica-de-cookies</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://mandalobonito.es/aviso-legal</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
 </urlset>

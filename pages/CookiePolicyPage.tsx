@@ -1,7 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSEO } from '../lib/useSEO';
 
 export default function CookiePolicyPage() {
+  useSEO({
+    title: 'Política de Cookies | Mándalo Bonito',
+    description: 'Política de cookies de Mándalo Bonito: qué cookies utilizamos y cómo gestionarlas.',
+    noindex: true,
+  });
   const navigate = useNavigate();
 
   return (
