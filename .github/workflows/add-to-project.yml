@@ -9,7 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Añadir el issue al panel JeanCode
+        id: add
         uses: actions/add-to-project@v2
         with:
           project-url: https://github.com/users/JeanWeb96/projects/2
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+
+      - name: Asignar la empresa a la tarjeta
+        if: steps.add.outputs.itemId != ''
+        env:
+          GH_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
+        run: |
+          gh project item-edit \
+            --id "${{ steps.add.outputs.itemId }}" \
+            --project-id PVT_kwHOD62nS84BcAMM \
+            --field-id PVTSSF_lAHOD62nS84BcAMMzhWsbtQ \
+            --single-select-option-id c0a921c3
