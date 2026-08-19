@@ -20,8 +20,16 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.ADD_TO_PROJECT_PAT }}
         run: |
-          gh project item-edit \
-            --id "${{ steps.add.outputs.itemId }}" \
-            --project-id PVT_kwHOD62nS84BcAMM \
-            --field-id PVTSSF_lAHOD62nS84BcAMMzhWsbtQ \
-            --single-select-option-id c0a921c3
+          gh api graphql -f query='
+            mutation($project: ID!, $item: ID!, $field: ID!, $option: String!) {
+              updateProjectV2ItemFieldValue(input: {
+                projectId: $project,
+                itemId: $item,
+                fieldId: $field,
+                value: { singleSelectOptionId: $option }
+              }) { projectV2Item { id } }
+            }' \
+            -f project=PVT_kwHOD62nS84BcAMM \
+            -f item='${{ steps.add.outputs.itemId }}' \
+            -f field=PVTSSF_lAHOD62nS84BcAMMzhWsbtQ \
+            -f option=c0a921c3
