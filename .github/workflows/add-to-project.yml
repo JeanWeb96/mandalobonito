@@ -1,0 +1,15 @@
+name: Añadir issues al panel
+
+on:
+  issues:
+    types: [opened, reopened]
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Añadir el issue al panel JeanCode
+        uses: actions/add-to-project@v2
+        with:
+          project-url: https://github.com/users/JeanWeb96/projects/2
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
